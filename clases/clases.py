@@ -57,14 +57,23 @@ class Mascota:
     # Primera Forma
     # getter and setter
     
-    def __getDuenio(self):
+    # def __getDuenio(self):
+    #     return self.__duenio
+    
+    # def __setDuenio(self, duenio):
+    #     self.__duenio = duenio
+    
+    # duenio = property(__getDuenio, __setDuenio)
+    
+    #Segunda forma:
+    # Decoradores:
+    @property
+    def duenio(self):
         return self.__duenio
     
-    def __setDuenio(self, duenio):
+    @duenio.setter
+    def duenio(self,duenio):
         self.__duenio = duenio
-    
-    duenio = property(__getDuenio, __setDuenio)
-    
     
     def __metodoPrivado(self):
         print('Hola')
@@ -72,7 +81,27 @@ class Mascota:
     def metodoEncapsulamieto(self):
         self.__metodoPrivado()
 
-dino = Mascota('Dino', 'Frenchie', 'Vaquita')
-dino.duenio = 'Yonatan'
+# dino = Mascota('Dino', 'Frenchie', 'Vaquita')
+# dino.duenio = 'Yonatan'
 
-print(dino.duenio)
+# print(dino.duenio)
+
+# Poliformismo - Herencia
+class Animal:   
+    # metodo 
+    def hablar(self): 
+        pass
+    
+    def nadar(self):
+        pass
+    
+# Herencia en python
+class Perro(Animal):
+    def hablar(self): 
+        # respuesta
+        print("Guau")
+
+class Gato(Animal):
+    def hablar(self): 
+        # respuesta
+        print('Miuuuuuu')
